@@ -1,0 +1,44 @@
+# Full stack: API + UI + Qdrant + Neo4j. Model inference runs on NVIDIA's hosted NIM endpoints
+# (set NVIDIA_API_KEY in .env), or point ATLAS_NVIDIA_BASE_URL at self-hosted NIM containers.
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      ATLAS_QDRANT_URL: http://qdrant:6333
+      ATLAS_GRAPH_BACKEND: neo4j
+      ATLAS_NEO4J_URI: bolt://neo4j:7687
+    ports: ["8000:8000"]
+    volumes: ["atlas-data:/data"]
+    depends_on:
+      qdrant: { condition: service_started }
+      neo4j: { condition: service_healthy }
+
+  ui:
+    build: .
+    command: ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    environment:
+      ATLAS_API_URL: http://api:8000
+    ports: ["8501:8501"]
+    depends_on: [api]
+
+  qdrant:
+    image: qdrant/qdrant:v1.15.4
+    ports: ["6333:6333"]
+    volumes: ["qdrant-data:/qdrant/storage"]
+
+  neo4j:
+    image: neo4j:5.26-community
+    environment:
+      NEO4J_AUTH: neo4j/${ATLAS_NEO4J_PASSWORD:-atlas-password}
+    ports: ["7474:7474", "7687:7687"]
+    volumes: ["neo4j-data:/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p $${ATLAS_NEO4J_PASSWORD:-atlas-password} 'RETURN 1' || exit 1"]
+      interval: 10s
+      retries: 12
+
+volumes:
+  atlas-data:
+  qdrant-data:
+  neo4j-data:

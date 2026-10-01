@@ -1,0 +1,54 @@
+# Coding reference tables used by the deterministic rules engine.
+cpt:
+  "99213": {description: "Office visit, established patient, low complexity", ref_cost: 110, mue: 1, category: em}
+  "99214": {description: "Office visit, established patient, moderate complexity", ref_cost: 165, mue: 1, category: em}
+  "99215": {description: "Office visit, established patient, high complexity", ref_cost: 230, mue: 1, category: em, review_level: true}
+  "70553": {description: "MRI brain without and with contrast", ref_cost: 1400, mue: 1, requires_auth: true, necessity: ["G40", "G35", "G45", "C71"], policy: AEG-4.2}
+  "72148": {description: "MRI lumbar spine without contrast", ref_cost: 900, mue: 1, requires_auth: true, necessity: ["M51.1"], policy: AEG-4.3}
+  "29881": {description: "Knee arthroscopy with meniscectomy", ref_cost: 4200, mue: 1, requires_auth: true, necessity: ["S83.2", "M23.2"], policy: AEG-4.4}
+  "20610": {description: "Arthrocentesis/injection, major joint", ref_cost: 120, mue: 2, necessity: ["M17", "M25.56", "S83.2", "M23.2"]}
+  "97110": {description: "Therapeutic exercise, each 15 minutes", ref_cost: 35, mue: 4, necessity: ["M54", "M51", "M25", "M17", "S83"], policy: AEG-4.5}
+  "97140": {description: "Manual therapy, each 15 minutes", ref_cost: 33, mue: 4, necessity: ["M54", "M51", "M25", "M17", "S83"], policy: AEG-4.5}
+  "97530": {description: "Therapeutic activities, each 15 minutes", ref_cost: 40, mue: 4, necessity: ["M54", "M51", "M25", "M17", "S83"], policy: AEG-4.5}
+  "93000": {description: "Electrocardiogram, complete", ref_cost: 60, mue: 1, necessity: ["I10", "I25", "R07", "R00", "Z01.81"]}
+  "93005": {description: "Electrocardiogram, tracing only", ref_cost: 25, mue: 1, necessity: ["I10", "I25", "R07", "R00", "Z01.81"]}
+  "80053": {description: "Comprehensive metabolic panel", ref_cost: 45, mue: 1}
+  "83036": {description: "Hemoglobin A1c", ref_cost: 30, mue: 1, necessity: ["E11", "R73", "Z13.1"]}
+  "36415": {description: "Venipuncture", ref_cost: 10, mue: 1}
+  "96413": {description: "Chemotherapy infusion, first hour", ref_cost: 900, mue: 1, requires_auth: true, necessity: ["C"]}
+  "G0439": {description: "Annual wellness visit, subsequent", ref_cost: 175, mue: 1, age_min: 65}
+  "99391": {description: "Preventive visit, infant under 1 year", ref_cost: 150, mue: 1, age_max: 0}
+
+icd:
+  E11.9: Type 2 diabetes mellitus without complications
+  R73.03: Prediabetes
+  I10: Essential hypertension
+  I25.10: Atherosclerotic heart disease
+  R07.9: Chest pain, unspecified
+  R51.9: Headache, unspecified
+  G43.909: Migraine, unspecified
+  G45.9: Transient cerebral ischemic attack
+  G40.909: Epilepsy, unspecified
+  M54.50: Low back pain, unspecified
+  M51.16: Intervertebral disc disorder with radiculopathy, lumbar
+  M17.11: Primary osteoarthritis, right knee
+  M17.12: Primary osteoarthritis, left knee
+  M23.221: Derangement of posterior horn of medial meniscus, right knee
+  S83.241A: Medial meniscus tear, right knee, initial encounter
+  M25.561: Pain in right knee
+  C50.911: Malignant neoplasm of right female breast
+  Z00.00: General adult medical examination
+  J45.41: Moderate persistent asthma with exacerbation
+  J06.9: Acute upper respiratory infection
+
+# Procedure-to-procedure edits: column1 (comprehensive) + column2 (component).
+ncci:
+  - {column1: "93000", column2: "93005", modifier_allowed: false}
+  - {column1: "99215", column2: "99214", modifier_allowed: false}
+  - {column1: "99214", column2: "99213", modifier_allowed: false}
+  - {column1: "29881", column2: "20610", modifier_allowed: true}
+  - {column1: "97530", column2: "97140", modifier_allowed: true}
+
+emergency_pos: ["23"]
+timely_filing_days: 90
+outlier_multiple: 3.0

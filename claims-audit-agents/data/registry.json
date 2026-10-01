@@ -1,0 +1,1431 @@
+{
+ "members": [
+  {
+   "member_id": "M00001",
+   "date_of_birth": "1985-08-02",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00002",
+   "date_of_birth": "1985-07-15",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00003",
+   "date_of_birth": "1961-07-26",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00004",
+   "date_of_birth": "2001-07-05",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00005",
+   "date_of_birth": "1953-06-12",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00006",
+   "date_of_birth": "1972-03-21",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00007",
+   "date_of_birth": "1953-02-19",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00008",
+   "date_of_birth": "1998-06-03",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00009",
+   "date_of_birth": "1985-08-22",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00010",
+   "date_of_birth": "2000-11-26",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00011",
+   "date_of_birth": "1992-05-27",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00012",
+   "date_of_birth": "1950-05-06",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00013",
+   "date_of_birth": "1962-01-24",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00014",
+   "date_of_birth": "1998-10-18",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00015",
+   "date_of_birth": "2014-10-23",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00016",
+   "date_of_birth": "1974-04-10",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00017",
+   "date_of_birth": "1998-01-07",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00018",
+   "date_of_birth": "1991-07-29",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00019",
+   "date_of_birth": "2002-06-12",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00020",
+   "date_of_birth": "1989-11-02",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00021",
+   "date_of_birth": "2004-06-07",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00022",
+   "date_of_birth": "1986-01-11",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00023",
+   "date_of_birth": "1981-06-30",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00024",
+   "date_of_birth": "2008-07-02",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00025",
+   "date_of_birth": "1973-04-15",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00026",
+   "date_of_birth": "1991-01-06",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00027",
+   "date_of_birth": "1947-09-02",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00028",
+   "date_of_birth": "1995-07-11",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00029",
+   "date_of_birth": "1980-12-03",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00030",
+   "date_of_birth": "1971-02-06",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00031",
+   "date_of_birth": "1950-12-30",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00032",
+   "date_of_birth": "2006-06-12",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00033",
+   "date_of_birth": "1964-02-27",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00034",
+   "date_of_birth": "1949-09-11",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00035",
+   "date_of_birth": "1978-09-08",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00036",
+   "date_of_birth": "1982-08-30",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00037",
+   "date_of_birth": "1995-10-20",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00038",
+   "date_of_birth": "2014-11-05",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00039",
+   "date_of_birth": "1975-03-24",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00040",
+   "date_of_birth": "1972-12-02",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00041",
+   "date_of_birth": "1946-05-12",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00042",
+   "date_of_birth": "2013-01-03",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00043",
+   "date_of_birth": "1957-01-28",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00044",
+   "date_of_birth": "2008-06-06",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00045",
+   "date_of_birth": "1945-12-25",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00046",
+   "date_of_birth": "1986-09-18",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00047",
+   "date_of_birth": "1960-12-10",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00048",
+   "date_of_birth": "1985-02-21",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00049",
+   "date_of_birth": "2010-08-30",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00050",
+   "date_of_birth": "1982-08-12",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00051",
+   "date_of_birth": "1955-06-15",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00052",
+   "date_of_birth": "1982-10-01",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00053",
+   "date_of_birth": "1945-01-16",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00054",
+   "date_of_birth": "1998-03-06",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00055",
+   "date_of_birth": "1946-10-06",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00056",
+   "date_of_birth": "1961-10-21",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00057",
+   "date_of_birth": "1999-01-04",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00058",
+   "date_of_birth": "1948-10-11",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00059",
+   "date_of_birth": "1964-02-18",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00060",
+   "date_of_birth": "1968-03-04",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00061",
+   "date_of_birth": "2014-04-28",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00062",
+   "date_of_birth": "1971-08-02",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00063",
+   "date_of_birth": "1951-08-03",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00064",
+   "date_of_birth": "1953-01-31",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00065",
+   "date_of_birth": "1997-04-13",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00066",
+   "date_of_birth": "1946-05-24",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00067",
+   "date_of_birth": "1978-05-07",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00068",
+   "date_of_birth": "1956-05-31",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00069",
+   "date_of_birth": "1996-07-19",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00070",
+   "date_of_birth": "1979-08-22",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00071",
+   "date_of_birth": "2001-04-10",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00072",
+   "date_of_birth": "1972-11-19",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00073",
+   "date_of_birth": "1999-10-08",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00074",
+   "date_of_birth": "2010-01-29",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00075",
+   "date_of_birth": "1959-03-21",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00076",
+   "date_of_birth": "2006-08-19",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00077",
+   "date_of_birth": "1988-04-16",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00078",
+   "date_of_birth": "1982-10-24",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00079",
+   "date_of_birth": "1954-04-26",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00080",
+   "date_of_birth": "1948-06-22",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00081",
+   "date_of_birth": "1966-05-23",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00082",
+   "date_of_birth": "1968-01-21",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00083",
+   "date_of_birth": "1998-07-07",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00084",
+   "date_of_birth": "1971-04-30",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00085",
+   "date_of_birth": "2009-08-17",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00086",
+   "date_of_birth": "1956-05-04",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00087",
+   "date_of_birth": "1988-01-01",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00088",
+   "date_of_birth": "1970-02-21",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00089",
+   "date_of_birth": "1963-04-20",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00090",
+   "date_of_birth": "1951-03-17",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00091",
+   "date_of_birth": "1981-11-29",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00092",
+   "date_of_birth": "1967-05-07",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00093",
+   "date_of_birth": "1949-03-07",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00094",
+   "date_of_birth": "1970-04-19",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00095",
+   "date_of_birth": "1992-08-21",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00096",
+   "date_of_birth": "1953-04-09",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00097",
+   "date_of_birth": "1957-06-02",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00098",
+   "date_of_birth": "1974-09-11",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00099",
+   "date_of_birth": "1997-12-03",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00100",
+   "date_of_birth": "1946-08-10",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00101",
+   "date_of_birth": "1977-01-26",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00102",
+   "date_of_birth": "1948-01-05",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00103",
+   "date_of_birth": "1998-09-07",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00104",
+   "date_of_birth": "1988-04-06",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00105",
+   "date_of_birth": "2010-07-15",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  },
+  {
+   "member_id": "M00106",
+   "date_of_birth": "1973-08-11",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00107",
+   "date_of_birth": "1951-07-02",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00108",
+   "date_of_birth": "1985-08-25",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00109",
+   "date_of_birth": "2011-02-14",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00110",
+   "date_of_birth": "2011-02-16",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00111",
+   "date_of_birth": "1975-08-26",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00112",
+   "date_of_birth": "1952-08-14",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00113",
+   "date_of_birth": "1951-12-21",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00114",
+   "date_of_birth": "1947-09-19",
+   "gender": "M",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00115",
+   "date_of_birth": "1996-05-22",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00116",
+   "date_of_birth": "2001-01-25",
+   "gender": "M",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00117",
+   "date_of_birth": "1979-01-07",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00118",
+   "date_of_birth": "1999-08-17",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00119",
+   "date_of_birth": "1952-03-13",
+   "gender": "F",
+   "plan_type": "PPO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": null
+  },
+  {
+   "member_id": "M00120",
+   "date_of_birth": "2002-05-14",
+   "gender": "F",
+   "plan_type": "HMO",
+   "coverage_start": "2024-01-01",
+   "coverage_end": "2025-06-30"
+  }
+ ],
+ "providers": [
+  {
+   "npi": "2656977784",
+   "name": "Nguyen Family Medicine",
+   "specialty": "Family Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "1491703173",
+   "name": "Tanaka Neurology",
+   "specialty": "Neurology",
+   "network": "in_network"
+  },
+  {
+   "npi": "2405429384",
+   "name": "Patel Orthopedics",
+   "specialty": "Orthopedics",
+   "network": "in_network"
+  },
+  {
+   "npi": "2773564366",
+   "name": "Kim Cardiology",
+   "specialty": "Cardiology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1639532278",
+   "name": "Silva Physical Therapy",
+   "specialty": "Physical Therapy",
+   "network": "in_network"
+  },
+  {
+   "npi": "1142177439",
+   "name": "Cohen Oncology",
+   "specialty": "Oncology",
+   "network": "out_of_network"
+  },
+  {
+   "npi": "2875975106",
+   "name": "Okafor Endocrinology",
+   "specialty": "Endocrinology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1495490264",
+   "name": "Haddad Emergency Medicine",
+   "specialty": "Emergency Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "1043201718",
+   "name": "Reyes Family Medicine",
+   "specialty": "Family Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "2133742074",
+   "name": "Reyes Neurology",
+   "specialty": "Neurology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1234588899",
+   "name": "Patel Orthopedics",
+   "specialty": "Orthopedics",
+   "network": "in_network"
+  },
+  {
+   "npi": "2316627738",
+   "name": "Garcia Cardiology",
+   "specialty": "Cardiology",
+   "network": "out_of_network"
+  },
+  {
+   "npi": "2898575313",
+   "name": "Nguyen Physical Therapy",
+   "specialty": "Physical Therapy",
+   "network": "in_network"
+  },
+  {
+   "npi": "1361485406",
+   "name": "Silva Oncology",
+   "specialty": "Oncology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1075864706",
+   "name": "Kim Endocrinology",
+   "specialty": "Endocrinology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1602852729",
+   "name": "Reyes Emergency Medicine",
+   "specialty": "Emergency Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "2791378849",
+   "name": "Reyes Family Medicine",
+   "specialty": "Family Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "1888446931",
+   "name": "Okafor Neurology",
+   "specialty": "Neurology",
+   "network": "out_of_network"
+  },
+  {
+   "npi": "1884973680",
+   "name": "Nguyen Orthopedics",
+   "specialty": "Orthopedics",
+   "network": "in_network"
+  },
+  {
+   "npi": "1960808685",
+   "name": "Tanaka Cardiology",
+   "specialty": "Cardiology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1712187669",
+   "name": "Okafor Physical Therapy",
+   "specialty": "Physical Therapy",
+   "network": "in_network"
+  },
+  {
+   "npi": "1772567859",
+   "name": "Nguyen Oncology",
+   "specialty": "Oncology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1690420033",
+   "name": "Patel Endocrinology",
+   "specialty": "Endocrinology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1045539719",
+   "name": "Haddad Emergency Medicine",
+   "specialty": "Emergency Medicine",
+   "network": "out_of_network"
+  },
+  {
+   "npi": "1894386063",
+   "name": "Cohen Family Medicine",
+   "specialty": "Family Medicine",
+   "network": "in_network"
+  },
+  {
+   "npi": "1838383895",
+   "name": "Tanaka Neurology",
+   "specialty": "Neurology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1352595338",
+   "name": "Kim Orthopedics",
+   "specialty": "Orthopedics",
+   "network": "in_network"
+  },
+  {
+   "npi": "1232146161",
+   "name": "Cohen Cardiology",
+   "specialty": "Cardiology",
+   "network": "in_network"
+  },
+  {
+   "npi": "1360139558",
+   "name": "Nguyen Physical Therapy",
+   "specialty": "Physical Therapy",
+   "network": "in_network"
+  },
+  {
+   "npi": "2831710084",
+   "name": "Tanaka Oncology",
+   "specialty": "Oncology",
+   "network": "out_of_network"
+  }
+ ],
+ "authorizations": [
+  {
+   "auth_number": "PA000001",
+   "member_id": "M00101",
+   "cpt": "70553",
+   "valid_from": "2025-03-16",
+   "valid_to": "2025-04-15"
+  },
+  {
+   "auth_number": "PA000002",
+   "member_id": "M00059",
+   "cpt": "72148",
+   "valid_from": "2025-04-06",
+   "valid_to": "2025-05-06"
+  },
+  {
+   "auth_number": "PA000003",
+   "member_id": "M00013",
+   "cpt": "29881",
+   "valid_from": "2025-04-01",
+   "valid_to": "2025-05-01"
+  },
+  {
+   "auth_number": "PA000004",
+   "member_id": "M00088",
+   "cpt": "70553",
+   "valid_from": "2025-03-24",
+   "valid_to": "2025-04-23"
+  },
+  {
+   "auth_number": "PA000005",
+   "member_id": "M00095",
+   "cpt": "70553",
+   "valid_from": "2025-05-02",
+   "valid_to": "2025-06-01"
+  },
+  {
+   "auth_number": "PA000006",
+   "member_id": "M00077",
+   "cpt": "72148",
+   "valid_from": "2025-04-09",
+   "valid_to": "2025-05-09"
+  },
+  {
+   "auth_number": "PA000007",
+   "member_id": "M00115",
+   "cpt": "29881",
+   "valid_from": "2025-05-03",
+   "valid_to": "2025-06-02"
+  },
+  {
+   "auth_number": "PA000008",
+   "member_id": "M00065",
+   "cpt": "70553",
+   "valid_from": "2025-04-24",
+   "valid_to": "2025-05-24"
+  },
+  {
+   "auth_number": "PA000009",
+   "member_id": "M00019",
+   "cpt": "70553",
+   "valid_from": "2025-04-29",
+   "valid_to": "2025-05-29"
+  },
+  {
+   "auth_number": "PA000010",
+   "member_id": "M00089",
+   "cpt": "72148",
+   "valid_from": "2025-04-14",
+   "valid_to": "2025-05-14"
+  },
+  {
+   "auth_number": "PA000011",
+   "member_id": "M00089",
+   "cpt": "29881",
+   "valid_from": "2025-04-06",
+   "valid_to": "2025-05-06"
+  },
+  {
+   "auth_number": "PA000012",
+   "member_id": "M00103",
+   "cpt": "70553",
+   "valid_from": "2025-03-28",
+   "valid_to": "2025-04-27"
+  },
+  {
+   "auth_number": "PA000013",
+   "member_id": "M00067",
+   "cpt": "70553",
+   "valid_from": "2025-03-22",
+   "valid_to": "2025-04-21"
+  },
+  {
+   "auth_number": "PA000014",
+   "member_id": "M00103",
+   "cpt": "72148",
+   "valid_from": "2025-02-25",
+   "valid_to": "2025-03-27"
+  },
+  {
+   "auth_number": "PA000015",
+   "member_id": "M00046",
+   "cpt": "29881",
+   "valid_from": "2025-03-06",
+   "valid_to": "2025-04-05"
+  },
+  {
+   "auth_number": "PA000016",
+   "member_id": "M00088",
+   "cpt": "70553",
+   "valid_from": "2025-04-13",
+   "valid_to": "2025-05-13"
+  },
+  {
+   "auth_number": "PA000017",
+   "member_id": "M00001",
+   "cpt": "70553",
+   "valid_from": "2025-03-24",
+   "valid_to": "2025-04-23"
+  },
+  {
+   "auth_number": "PA000018",
+   "member_id": "M00002",
+   "cpt": "72148",
+   "valid_from": "2025-03-04",
+   "valid_to": "2025-04-03"
+  },
+  {
+   "auth_number": "PA000019",
+   "member_id": "M00098",
+   "cpt": "29881",
+   "valid_from": "2025-04-30",
+   "valid_to": "2025-05-30"
+  },
+  {
+   "auth_number": "PA000020",
+   "member_id": "M00040",
+   "cpt": "70553",
+   "valid_from": "2025-04-23",
+   "valid_to": "2025-05-23"
+  },
+  {
+   "auth_number": "PA000021",
+   "member_id": "M00062",
+   "cpt": "70553",
+   "valid_from": "2025-05-02",
+   "valid_to": "2025-06-01"
+  },
+  {
+   "auth_number": "PA000022",
+   "member_id": "M00098",
+   "cpt": "72148",
+   "valid_from": "2025-03-29",
+   "valid_to": "2025-04-28"
+  },
+  {
+   "auth_number": "PA000023",
+   "member_id": "M00101",
+   "cpt": "29881",
+   "valid_from": "2025-04-23",
+   "valid_to": "2025-05-23"
+  },
+  {
+   "auth_number": "PA000024",
+   "member_id": "M00014",
+   "cpt": "70553",
+   "valid_from": "2025-05-20",
+   "valid_to": "2025-06-19"
+  },
+  {
+   "auth_number": "PA000025",
+   "member_id": "M00020",
+   "cpt": "70553",
+   "valid_from": "2025-03-02",
+   "valid_to": "2025-04-01"
+  },
+  {
+   "auth_number": "PA000026",
+   "member_id": "M00032",
+   "cpt": "72148",
+   "valid_from": "2025-03-19",
+   "valid_to": "2025-04-18"
+  },
+  {
+   "auth_number": "PA000027",
+   "member_id": "M00002",
+   "cpt": "29881",
+   "valid_from": "2025-02-27",
+   "valid_to": "2025-03-29"
+  },
+  {
+   "auth_number": "PA000028",
+   "member_id": "M00106",
+   "cpt": "70553",
+   "valid_from": "2025-03-31",
+   "valid_to": "2025-04-30"
+  },
+  {
+   "auth_number": "PA000029",
+   "member_id": "M00011",
+   "cpt": "70553",
+   "valid_from": "2025-04-29",
+   "valid_to": "2025-05-29"
+  },
+  {
+   "auth_number": "PA000030",
+   "member_id": "M00002",
+   "cpt": "72148",
+   "valid_from": "2025-05-20",
+   "valid_to": "2025-06-19"
+  },
+  {
+   "auth_number": "PA000031",
+   "member_id": "M00026",
+   "cpt": "29881",
+   "valid_from": "2025-05-11",
+   "valid_to": "2025-06-10"
+  },
+  {
+   "auth_number": "PA000032",
+   "member_id": "M00076",
+   "cpt": "70553",
+   "valid_from": "2025-03-26",
+   "valid_to": "2025-04-25"
+  }
+ ],
+ "referrals": [],
+ "history": [
+  {
+   "member_id": "M00013",
+   "provider_npi": "1894386063",
+   "service_date": "2025-05-14",
+   "cpt": "99214",
+   "claim_id": "H000001"
+  },
+  {
+   "member_id": "M00056",
+   "provider_npi": "2791378849",
+   "service_date": "2025-03-27",
+   "cpt": "99214",
+   "claim_id": "H000002"
+  },
+  {
+   "member_id": "M00040",
+   "provider_npi": "2656977784",
+   "service_date": "2025-05-10",
+   "cpt": "99214",
+   "claim_id": "H000003"
+  },
+  {
+   "member_id": "M00052",
+   "provider_npi": "2656977784",
+   "service_date": "2025-03-07",
+   "cpt": "99214",
+   "claim_id": "H000004"
+  },
+  {
+   "member_id": "M00035",
+   "provider_npi": "2791378849",
+   "service_date": "2025-05-04",
+   "cpt": "99214",
+   "claim_id": "H000005"
+  },
+  {
+   "member_id": "M00052",
+   "provider_npi": "1043201718",
+   "service_date": "2025-03-20",
+   "cpt": "99214",
+   "claim_id": "H000006"
+  },
+  {
+   "member_id": "M00056",
+   "provider_npi": "1894386063",
+   "service_date": "2025-05-06",
+   "cpt": "99214",
+   "claim_id": "H000007"
+  },
+  {
+   "member_id": "M00071",
+   "provider_npi": "2656977784",
+   "service_date": "2025-05-06",
+   "cpt": "99214",
+   "claim_id": "H000008"
+  }
+ ]
+}

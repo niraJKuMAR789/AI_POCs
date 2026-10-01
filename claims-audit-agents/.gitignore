@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.aegis/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+reports/*.json

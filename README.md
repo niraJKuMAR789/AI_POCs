@@ -15,6 +15,7 @@ without API keys, Docker, evaluation harnesses and architecture docs. Models are
 |---|---|---|
 | [**Atlas: Adaptive GraphRAG Research Agent**](adaptive-graphrag) | Multi-hop and corpus-wide QA over private documents. Adaptive routing, hybrid + knowledge-graph retrieval, CRAG grading, Self-RAG reflection, streaming, conversation memory, an MCP server, and an eval harness benchmarked against naive RAG | LangGraph · NVIDIA Nemotron + NeMo Retriever · Qdrant · Neo4j · MCP · FastAPI · Streamlit |
 | [**Quill: Governed Text-to-SQL Agent**](governed-text2sql) | NL analytics over a regulated claims warehouse. AST-level guardrails (RBAC, PII column protection, row-level security, self-repair), an Agno agent with human-approved writes, a role-bound MCP server, a red-team leak suite, and a LoRA/QLoRA fine-tuning pipeline scored by execution accuracy on held-out query shapes | Agno · MCP · NVIDIA NIM · sqlglot · TRL/PEFT · FastAPI · Streamlit |
+| [**Aegis: Multi-Agent Medical Claims Auditor**](claims-audit-agents) | Deterministic rules engine + parallel LLM specialist agents (clinical, coding) whose proposals must pass evidence and citation validation, a human-review pause that survives restarts, vision intake of claim forms, a hash-chained audit ledger, and a three-way benchmark (rules-only / rules+agents / LLM-only) that measures overpayment in dollars | LangGraph (Send, interrupt, SQLite checkpoints) · NVIDIA Nemotron + Nemotron VL · MCP · FastAPI · Streamlit |
 
 ## Engineering standards across projects
 

@@ -1,6 +1,6 @@
 # AI Engineering Portfolio: Niraj Kumar Marepally
 
-AI Engineer (5+ years) building production **LLM, RAG and agentic systems**, including MCP servers, LangGraph
+AI Engineer (3+ years) building production **LLM, RAG and agentic systems**, including MCP servers, LangGraph
 agents and ML platforms, for finance, healthcare and real-estate clients.
 Claude Certified Architect · Databricks ML Associate · Azure AI Associate ·
 [LinkedIn](https://www.linkedin.com/in/niraj-kumar-marepally)

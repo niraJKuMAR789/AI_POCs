@@ -3,7 +3,7 @@
 AI Engineer (5+ years) building production **LLM, RAG and agentic systems**, including MCP servers, LangGraph
 agents and ML platforms, for finance, healthcare and real-estate clients.
 Claude Certified Architect · Databricks ML Associate · Azure AI Associate ·
-[LinkedIn](https://www.linkedin.com/in/niraj-marepally)
+[LinkedIn](https://www.linkedin.com/in/niraj-kumar-marepally)
 
 Every project here is a self-contained, production-style codebase with typed Python, tests that run in CI
 without API keys, Docker, evaluation harnesses and architecture docs. Models are served through

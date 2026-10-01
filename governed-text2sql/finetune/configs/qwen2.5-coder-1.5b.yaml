@@ -1,0 +1,23 @@
+# Single 24 GB GPU (or a free Colab T4 with qlora: true). ~10 minutes on an A10G.
+base_model: Qwen/Qwen2.5-Coder-1.5B-Instruct
+train_file: data/sft/train.jsonl
+eval_file: data/sft/dev.jsonl
+output_dir: runs/qwen2.5-coder-1.5b-lora
+dtype: bfloat16
+qlora: false
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: all-linear
+training:
+  epochs: 3
+  batch_size: 4
+  grad_accum: 4
+  learning_rate: 2.0e-4
+  warmup: 0.05
+  max_length: 3072
+  gradient_checkpointing: true
+  bf16: true
+  logging_steps: 10
+  eval_steps: 50

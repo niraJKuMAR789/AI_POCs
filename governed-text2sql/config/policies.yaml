@@ -1,0 +1,24 @@
+# Role-based data access. Enforced on the SQL AST, so it holds no matter what the LLM generates.
+roles:
+  analyst:
+    description: Aggregate analytics. No direct identifiers.
+    tables: [plans, members, providers, diagnoses, procedures, claims, claim_lines]
+    deny_columns: [members.first_name, members.last_name, members.date_of_birth, members.ssn_last4]
+    max_rows: 1000
+
+  claims_auditor:
+    description: Claim-level review with member identity; can flag claims for review.
+    tables: [plans, members, providers, diagnoses, procedures, claims, claim_lines, audit_flags]
+    deny_columns: [members.ssn_last4]
+    write_tables: [audit_flags]
+    max_rows: 500
+
+  provider_portal:
+    description: A provider sees only its own claims; no member identity.
+    tables: [claims, claim_lines, procedures, diagnoses]
+    deny_columns: []
+    row_filters:
+      claims: "provider_id = {provider_id}"
+      claim_lines: "claim_id IN (SELECT claim_id FROM claims WHERE provider_id = {provider_id})"
+    required_context: [provider_id]
+    max_rows: 200

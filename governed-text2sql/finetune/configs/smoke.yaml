@@ -1,0 +1,19 @@
+# CPU smoke test of the full pipeline on a tiny random model (see make_tiny_model.py).
+base_model: runs/tiny-base
+train_file: data/sft/train.jsonl
+eval_file: data/sft/dev.jsonl
+output_dir: runs/smoke
+dtype: float32
+lora:
+  r: 4
+  alpha: 8
+  dropout: 0.0
+  target_modules: all-linear
+training:
+  max_steps: 6
+  batch_size: 2
+  learning_rate: 1.0e-3
+  max_length: 2048
+  use_cpu: true
+  logging_steps: 2
+  eval_steps: 6

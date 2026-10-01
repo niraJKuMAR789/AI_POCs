@@ -1,0 +1,19 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    ports: ["8001:8001"]
+  ui:
+    build: .
+    command: ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    environment:
+      QUILL_API_URL: http://api:8001
+    ports: ["8501:8501"]
+    depends_on: [api]
+  mcp:
+    build: .
+    env_file: .env
+    environment:
+      QUILL_MCP_ROLE: analyst
+    command: ["quill", "mcp", "--http", "--port", "8766"]
+    ports: ["8766:8766"]

@@ -1,0 +1,114 @@
+# Business-facing description of the warehouse. Feeds schema linking, the SQL prompt,
+# and the MCP `describe_table` tool. `pii: true` columns are protected by the role policies.
+name: claims_warehouse
+description: Synthetic health-insurance claims warehouse (fictional members, providers and claims).
+dialect: sqlite
+
+tables:
+  plans:
+    description: Insurance plans members are enrolled in.
+    synonyms: [plan, insurance plan, product, coverage, benefit plan]
+    columns:
+      plan_id: {description: Plan identifier}
+      plan_name: {description: Marketing name of the plan}
+      plan_type: {description: "Network model: HMO, PPO or EPO", values: [HMO, PPO, EPO]}
+      metal_tier: {description: ACA metal tier, values: [Bronze, Silver, Gold, Platinum]}
+      monthly_premium: {description: Monthly premium in USD}
+
+  members:
+    description: People enrolled in a plan (policy holders and dependents).
+    synonyms: [member, patient, enrollee, beneficiary, insured, subscriber]
+    columns:
+      member_id: {description: Member identifier}
+      first_name: {description: First name, pii: true}
+      last_name: {description: Last name, pii: true}
+      date_of_birth: {description: "Date of birth (YYYY-MM-DD)", pii: true}
+      gender: {description: "Gender: F, M or X", values: [F, M, X]}
+      state: {description: Two-letter US state of residence}
+      plan_id: {description: Plan the member is enrolled in, references: plans.plan_id}
+      enrollment_date: {description: "Date the member enrolled (YYYY-MM-DD)"}
+      ssn_last4: {description: Last four digits of SSN, pii: true, restricted: true}
+
+  providers:
+    description: Physicians and facilities that submit claims.
+    synonyms: [provider, doctor, physician, clinic, facility, practice]
+    columns:
+      provider_id: {description: Provider identifier}
+      npi: {description: National Provider Identifier}
+      provider_name: {description: Provider or practice name}
+      specialty: {description: Medical specialty}
+      state: {description: Two-letter US state where the provider practices}
+      network_status: {description: "in_network or out_of_network", values: [in_network, out_of_network]}
+
+  diagnoses:
+    description: ICD-10 diagnosis code reference.
+    synonyms: [diagnosis, condition, disease, icd, icd-10]
+    columns:
+      code: {description: ICD-10 code}
+      description: {description: Diagnosis description}
+      category: {description: Clinical category, e.g. Circulatory, Endocrine}
+
+  procedures:
+    description: CPT procedure code reference.
+    synonyms: [procedure, service, cpt, treatment]
+    columns:
+      code: {description: CPT code}
+      description: {description: Procedure description}
+      category: {description: Procedure category, e.g. Imaging, Lab, Surgery}
+      base_cost: {description: Reference cost in USD}
+
+  claims:
+    description: One row per submitted claim (header level).
+    synonyms: [claim, bill, submission, encounter]
+    columns:
+      claim_id: {description: Claim identifier}
+      member_id: {description: Member who received care, references: members.member_id}
+      provider_id: {description: Provider who submitted the claim, references: providers.provider_id}
+      service_date: {description: "Date of service (YYYY-MM-DD); use for 'when care happened'"}
+      submitted_date: {description: "Date the claim was submitted (YYYY-MM-DD)"}
+      claim_type: {description: "professional, institutional or pharmacy", values: [professional, institutional, pharmacy]}
+      status: {description: "Adjudication status", values: [paid, denied, pending, adjusted]}
+      billed_amount: {description: Amount billed by the provider (USD)}
+      allowed_amount: {description: Contracted allowed amount (USD)}
+      paid_amount: {description: Amount the plan paid (USD)}
+      denial_reason: {description: Reason for denial; NULL unless status = 'denied'}
+      primary_diagnosis_code: {description: Primary ICD-10 code, references: diagnoses.code}
+
+  claim_lines:
+    description: Service lines within a claim (one per procedure).
+    synonyms: [line, claim line, service line, line item]
+    columns:
+      line_id: {description: Line identifier}
+      claim_id: {description: Parent claim, references: claims.claim_id}
+      procedure_code: {description: CPT code, references: procedures.code}
+      units: {description: Units of service}
+      line_billed: {description: Billed amount for the line (USD)}
+      line_paid: {description: Paid amount for the line (USD)}
+
+  audit_flags:
+    description: Claims flagged for review by auditors (write-back table).
+    synonyms: [flag, audit flag, review flag]
+    columns:
+      flag_id: {description: Flag identifier}
+      claim_id: {description: Flagged claim, references: claims.claim_id}
+      reason: {description: Why the claim was flagged}
+      flagged_by: {description: Who flagged it}
+      created_at: {description: Timestamp the flag was created}
+
+metrics:
+  denial_rate:
+    description: Share of claims denied.
+    sql: "AVG(CASE WHEN claims.status = 'denied' THEN 1.0 ELSE 0 END)"
+    synonyms: [denial rate, rejection rate, percent denied]
+  total_paid:
+    description: Total paid by the plan.
+    sql: "SUM(claims.paid_amount)"
+    synonyms: [total paid, spend, total spend, paid amount, cost to plan]
+  paid_to_billed_ratio:
+    description: Paid amount as a fraction of billed amount.
+    sql: "SUM(claims.paid_amount) / SUM(claims.billed_amount)"
+    synonyms: [payment ratio, reimbursement rate]
+  avg_days_to_submit:
+    description: Average days between service and submission.
+    sql: "AVG(julianday(claims.submitted_date) - julianday(claims.service_date))"
+    synonyms: [submission lag, days to submit, filing lag]

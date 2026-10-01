@@ -1,0 +1,22 @@
+# QLoRA (4-bit NF4) for a 3B model on a 16 GB GPU.
+base_model: meta-llama/Llama-3.2-3B-Instruct
+train_file: data/sft/train.jsonl
+eval_file: data/sft/dev.jsonl
+output_dir: runs/llama-3.2-3b-qlora
+dtype: bfloat16
+qlora: true
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05
+  target_modules: all-linear
+training:
+  epochs: 3
+  batch_size: 2
+  grad_accum: 8
+  learning_rate: 1.0e-4
+  max_length: 3072
+  gradient_checkpointing: true
+  bf16: true
+  logging_steps: 10
+  eval_steps: 50

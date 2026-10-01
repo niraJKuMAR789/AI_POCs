@@ -1,0 +1,59 @@
+[project]
+name = "quill-text2sql"
+version = "0.1.0"
+description = "Quill: a governed text-to-SQL agent (Agno + MCP + NVIDIA NIM) with AST-level guardrails and a LoRA fine-tuning pipeline."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Niraj Kumar Marepally" }]
+license = { text = "MIT" }
+dependencies = [
+    "agno>=3.1",
+    "sqlglot>=30.0",
+    "mcp>=2.2",
+    "openai>=2.0",
+    "fastapi>=0.140",
+    "uvicorn[standard]>=0.35",
+    "pydantic>=2.11",
+    "pydantic-settings>=2.10",
+    "pyyaml>=6.0",
+    "tenacity>=9.0",
+]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.50", "pandas>=2.2", "httpx>=0.28"]
+train = ["torch>=2.5", "transformers>=4.56", "trl>=0.23", "peft>=0.17", "datasets>=4.0", "accelerate>=1.10", "bitsandbytes>=0.47; platform_system == 'Linux'"]
+dev = ["pytest>=8.4", "pytest-asyncio>=1.1", "ruff>=0.13", "mypy>=1.18", "types-PyYAML", "httpx>=0.28"]
+
+[project.scripts]
+quill = "quill.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/quill"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF", "ASYNC"]
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/quill/evals/runner.py" = ["ASYNC240"]
+"finetune/*.py" = ["ASYNC240"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_unused_ignores = true

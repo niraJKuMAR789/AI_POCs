@@ -1,0 +1,56 @@
+[project]
+name = "argus-agent-observability"
+version = "0.1.0"
+description = "Argus: self-hosted observability, governance and anomaly investigation for agentic AI apps."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Niraj Kumar Marepally" }]
+license = { text = "MIT" }
+dependencies = [
+    "fastapi>=0.140",
+    "uvicorn[standard]>=0.35",
+    "httpx>=0.28",
+    "pydantic>=2.11",
+    "pydantic-settings>=2.10",
+    "pyyaml>=6.0",
+    "openai>=2.0",
+    "mcp>=2.2",
+]
+
+[project.optional-dependencies]
+langchain = ["langchain-core>=1.0", "langgraph>=1.0"]
+ui = ["streamlit>=1.50", "plotly>=6.0", "pandas>=2.2"]
+dev = ["pytest>=8.4", "pytest-asyncio>=1.1", "ruff>=0.13", "mypy>=1.18", "types-PyYAML",
+       "langchain-core>=1.0", "langgraph>=1.0"]
+
+[project.scripts]
+argus = "argus.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/argus"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF", "ASYNC"]
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_unused_ignores = true

@@ -1,0 +1,15 @@
+services:
+  collector:
+    build: .
+    env_file: .env
+    ports: ["8003:8003"]
+    volumes: ["argus-data:/data"]
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    environment:
+      ARGUS_API_URL: http://collector:8003
+    ports: ["8503:8501"]
+    depends_on: [collector]
+volumes:
+  argus-data:

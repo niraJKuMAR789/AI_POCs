@@ -1,0 +1,10 @@
+# Illustrative internal chargeback rates in USD per 1M tokens (input, output).
+# Replace with your negotiated or self-hosted (GPU-hour derived) rates.
+default: {input: 1.00, output: 3.00}
+models:
+  nvidia/nemotron-3-super-120b-a12b: {input: 0.60, output: 2.40}
+  nvidia/nemotron-3-nano-30b-a3b: {input: 0.10, output: 0.40}
+  meta/llama-3.3-70b-instruct: {input: 0.40, output: 0.80}
+  nvidia/llama-nemotron-embed-1b-v2: {input: 0.02, output: 0.0}
+  openai/gpt-oss-120b: {input: 0.30, output: 1.20}
+  deepseek-ai/deepseek-v3.2: {input: 0.50, output: 1.50}

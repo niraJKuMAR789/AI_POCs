@@ -158,7 +158,9 @@ def investigate(tools: InvestigationTools, incident_id: int) -> RCAReport:
     elif "throughput" in detectors:
         category, cause = "traffic_surge", ("traffic", "surge")
     for a in tools.store.anomalies(tools.project_id, incident_id)[:3]:
-        evidence.append(Evidence(kind="anomaly", ref=str(a.id), detail=f"{a.metric}: {a.observed} vs {a.baseline}"))
+        evidence.append(
+            Evidence(kind="anomaly", ref=str(a.id), detail=f"{a.metric}: {a.observed:.4g} vs {a.baseline:.4g}")
+        )
     confidence = 0.8 if category != "unknown" and cause[1] != "unknown" else 0.3
     summary = (
         (f"{inc.title}: most consistent with {category.replace('_', ' ')} ({cause[0]}={cause[1]}).")

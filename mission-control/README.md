@@ -14,9 +14,9 @@ would experience them: one org, three tenants, a deploy calendar, and incidents 
 
 ```
 $ mission-control drill --seeds 1 2 3
-seed 1: 1,554 requests in 62 s · detected 3/3 · root cause 3/3 · false alarms 0
-seed 2: 1,567 requests in 62 s · detected 3/3 · root cause 3/3 · false alarms 0
-seed 3: 1,614 requests in 52 s · detected 3/3 · root cause 3/3 · false alarms 0
+seed 1: 1,554 requests in 49 s · detected 3/3 · root cause 3/3 · false alarms 0
+seed 2: 1,567 requests in 59 s · detected 3/3 · root cause 3/3 · false alarms 0
+seed 3: 1,614 requests in 50 s · detected 3/3 · root cause 3/3 · false alarms 0
 ```
 
 Full report with timeline, evidence and business impact: [`reports/drill_report.md`](reports/drill_report.md).
@@ -61,12 +61,50 @@ What the business saw during each fault, and what Argus attached to its incident
 
 | Fault | User-visible symptom | Argus's evidence |
 |---|---|---|
-| F1 | Atlas p50 latency 28 ms → **383 ms** | `tool:rerank` p50 ~197× baseline; deploy *"reranker moved to shared GPU pool"* 6 min before |
+| F1 | Atlas p50 latency 19 ms → **377 ms** | `tool:rerank` p50 ~250× baseline; deploy *"reranker moved to shared GPU pool"* 6 min before |
 | F2 | 1.56 SQL attempts per question (was 1.0); 30 `step_limit` policy violations | `prompt_version=sql-v2` on 100% of outlier traces vs 3% at baseline; the prompt release 1 min before |
 | F3 | claims sent to human review 0% → **25%** | `llm:<reviewer model>` error rate 80% vs 0%; no matching change, so the provider is blamed |
 
 Detection delay is bounded below by the 10-minute window: the first possible alert lands when the
 first full window inside the fault closes.
+
+---
+
+## What on-call sees
+
+Argus's dashboard on the drill's data, one tenant at a time (`mission-control dashboard --app atlas`).
+
+**Atlas, F1.** p95 latency jumps from ~25 ms to ~480 ms. The shaded band is the incident Argus opened.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/atlas_overview_dark.png">
+  <img alt="Atlas tenant overview: p95 latency spike with the detected incident shaded" src="docs/img/atlas_overview_light.png">
+</picture>
+
+**The explanation attached to that incident.** The slow component (`tool:rerank`, ~250× its baseline
+p50), the deploy that moved it 6 minutes before, and the anomalies behind it. Every reference is checked
+to exist.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/atlas_incidents_dark.png">
+  <img alt="Atlas incident: root cause tool_failure, tool_name=rerank, with the deploy as evidence" src="docs/img/atlas_incidents_light.png">
+</picture>
+
+**Aegis, F3.** Errors on the reviewer model, with no matching change, so the provider is blamed rather
+than a deploy.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/aegis_incidents_dark.png">
+  <img alt="Aegis incident: root cause provider_degradation on the reviewer model" src="docs/img/aegis_incidents_light.png">
+</picture>
+
+**Quill, F2, governance view.** The prompt regression's repair loop also breaks the tenant's
+`max_steps_per_trace` policy, so it appears as violations as well as in detection.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/quill_governance_dark.png">
+  <img alt="Quill governance tab: step_limit violations and the effective tenant policy" src="docs/img/quill_governance_light.png">
+</picture>
 
 ---
 

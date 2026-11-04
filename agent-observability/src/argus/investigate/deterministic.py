@@ -62,6 +62,14 @@ def investigate(tools: InvestigationTools, incident_id: int) -> RCAReport:
                     )
                 )
 
+    def version_cause() -> tuple[Category, tuple[str, str]]:
+        found = attr_cause(("prompt_version", "model", "agent_version"))
+        if not found:
+            return "unknown", ("unknown", "unknown")
+        by_dimension: dict[str, Category] = {"prompt_version": "prompt_regression", "model": "model_change"}
+        change_matching(*found)
+        return by_dimension.get(found[0], "agent_regression"), found
+
     category: Category = "unknown"
     cause = ("unknown", "unknown")
     if "sensitive_data" in detectors:
@@ -71,11 +79,16 @@ def investigate(tools: InvestigationTools, incident_id: int) -> RCAReport:
         change_matching(*cause)
     elif detectors & {"error_rate", "tool_error_rate", "new_model"}:
         # A model that is new in the failing spans explains errors better than whichever tool they surfaced in.
+        # "New" means it served no calls before the incident, not merely that it had no errors back then.
+        baseline_calls = {c["component"]: c["baseline"]["calls"] for c in components}
         new_model = next(
             (
                 r
                 for r in contrast["top"]
-                if r["attribute"].startswith("model=") and r["lift"] > 0.5 and r["baseline_share"] < 0.05
+                if r["attribute"].startswith("model=")
+                and r["lift"] > 0.5
+                and r["baseline_share"] < 0.05
+                and not baseline_calls.get(f"llm:{r['attribute'].split('=', 1)[1]}")
             ),
             None,
         )
@@ -85,16 +98,33 @@ def investigate(tools: InvestigationTools, incident_id: int) -> RCAReport:
                 category, cause = "model_change", found
                 change_matching(*found)
         if category == "unknown":
-            found = attr_cause(("tool_name",)) or attr_cause(("error_type",))
-            if found:
-                category, cause = "tool_failure", found
+            # Localize by component: the model or tool whose error rate rose the most. Failing LLM calls on a
+            # model that was already in use point at the provider, not at the agent.
+            failing = sorted(
+                (c for c in components if c["incident"]["error_rate"] - c["baseline"]["error_rate"] >= 0.05),
+                key=lambda c: c["incident"]["error_rate"] - c["baseline"]["error_rate"],
+                reverse=True,
+            )
+            if failing:
+                top = failing[0]
+                kind, name = top["component"].split(":", 1)
+                evidence.append(
+                    Evidence(
+                        kind="component",
+                        ref=top["component"],
+                        detail=f"error rate {top['incident']['error_rate']:.0%} vs "
+                        f"{top['baseline']['error_rate']:.0%} at baseline",
+                    )
+                )
+                category = "provider_degradation" if kind == "llm" else "tool_failure"
+                cause = ("model", name) if kind == "llm" else ("tool_name", name)
+                change_matching(*cause)
+            else:
+                found = attr_cause(("tool_name",)) or attr_cause(("error_type",))
+                if found:
+                    category, cause = "tool_failure", found
     elif detectors & {"cost", "tokens"}:
-        found = attr_cause(("prompt_version", "model", "agent_version"))
-        if found:
-            by_dimension: dict[str, Category] = {"prompt_version": "prompt_regression", "model": "model_change"}
-            category = by_dimension.get(found[0], "agent_regression")
-            cause = found
-            change_matching(*found)
+        category, cause = version_cause()
     elif detectors & {"latency", "llm_latency"}:
         # The per-model latency detector already localizes the slow component; trust it first. Otherwise take
         # the component whose latency grew the most (a fixed "2x" cut-off misses moderate slowdowns).
@@ -119,8 +149,12 @@ def investigate(tools: InvestigationTools, incident_id: int) -> RCAReport:
             kind, name = slow["component"].split(":", 1)
             category = "provider_degradation" if kind == "llm" else "tool_failure"
             cause = ("model", name) if kind == "llm" else ("tool_name", name)
+            change_matching(*cause)
             for other in tools.other_projects_affected(incident_id):
                 evidence.append(Evidence(kind="project", ref=other["project"], detail=other["title"]))
+    elif "steps" in detectors:
+        # More steps per trace without a latency regression: usually a prompt or agent change (e.g. repair loops).
+        category, cause = version_cause()
     elif "throughput" in detectors:
         category, cause = "traffic_surge", ("traffic", "surge")
     for a in tools.store.anomalies(tools.project_id, incident_id)[:3]:

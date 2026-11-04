@@ -1,0 +1,43 @@
+name: mission-control
+
+# The integration drill depends on all four projects, so any of them can break it.
+on:
+  push:
+    paths:
+      - "mission-control/**"
+      - "agent-observability/**"
+      - "adaptive-graphrag/**"
+      - "governed-text2sql/**"
+      - "claims-audit-agents/**"
+      - ".github/workflows/mission-control.yml"
+  pull_request:
+    paths:
+      - "mission-control/**"
+      - "agent-observability/**"
+      - "adaptive-graphrag/**"
+      - "governed-text2sql/**"
+      - "claims-audit-agents/**"
+      - ".github/workflows/mission-control.yml"
+
+defaults:
+  run:
+    working-directory: mission-control
+
+jobs:
+  drill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.11"
+          enable-cache: true
+      - run: uv venv && uv pip install -e ".[dev]"
+      - name: Lint
+        run: .venv/bin/ruff check src tests && .venv/bin/ruff format --check src tests
+      - name: Type check
+        run: .venv/bin/mypy src
+      - name: Tests (unit + end-to-end drill)
+        run: .venv/bin/pytest
+      - name: Fault drill
+        run: .venv/bin/mission-control drill --workdir /tmp/mission --out /tmp/drill.md && cat /tmp/drill.md

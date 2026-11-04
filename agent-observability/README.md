@@ -81,13 +81,18 @@ baseline **skips windows already flagged**, so a long incident doesn't become th
 
 | Detector | Signal | Test |
 |---|---|---|
-| `latency`, `cost`, `steps`, `tokens` | trace p95 latency, cost/trace, spans/trace, input tokens per LLM call | robust z-score (median/MAD) **and** ≥ 50% relative change |
-| `llm_latency` | per model: ms per output token (separates a slow endpoint from longer answers) | robust z |
+| `latency`, `cost`, `steps`, `tokens` | trace p95 latency, cost/trace, spans/trace, input tokens per LLM call | robust z-score (median/MAD) **and** ≥ 50% relative change (latency: also ≥ +100 ms) |
+| `llm_latency` | per model: ms per output token (separates a slow endpoint from longer answers) | robust z, ≥ +1 ms/token |
 | `error_rate`, `tool_error_rate` | traces with errors; per-tool failure rate | exact binomial tail vs. pooled baseline |
 | `tool_loop` | traces repeating an identical tool call ≥ 4× | binomial |
 | `sensitive_data` | traces with redacted PII/secrets | binomial |
 | `throughput` | traces per window | Poisson tail |
 | `new_model`, `new_tool` | first appearance after warm-up | novelty |
+
+The absolute floors exist because significance isn't severity: an app that answers in 30 ms produces
+statistically real but meaningless p95 "regressions". [Mission Control](../mission-control)'s fault drill
+found that, along with two investigator bugs (provider outages labelled "model change", and error incidents
+that weren't localized to a component). All three are fixed, and the benchmark below is unchanged.
 
 Anomalies are grouped into **incidents**. Concurrent anomalies merge; back-to-back ones merge only if
 they are the same kind of problem, so a slowdown followed by a data leak stays two incidents.

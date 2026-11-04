@@ -1,0 +1,22 @@
+# Governance for the three apps as one Argus org ("helix"). Keys under `projects` override `default`.
+default:
+  capture_content: true
+  pii: redact
+  allowed_models: []
+  forbidden_tools: []
+  max_tokens_per_call: 32000
+  max_cost_per_trace_usd: 0.50
+  max_steps_per_trace: 60
+  daily_budget_usd: 100.0
+  retention_days: 30
+  content_retention_days: 7
+
+projects:
+  atlas:                       # internal knowledge assistant
+    max_steps_per_trace: 30
+  quill:                       # analytics over the claims warehouse
+    max_steps_per_trace: 6     # ask → SQL → guard → execute → answer; more means the repair loop is busy
+    forbidden_tools: [run_write_sql]
+  aegis:                       # claims auditing over clinical notes (PHI)
+    pii: block                 # never store note text that contains identifiers
+    max_steps_per_trace: 30

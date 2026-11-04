@@ -41,6 +41,9 @@ class Config:
     p_threshold: float = 1e-4
     loop_repeat: int = 4
     warmup_windows: int = 6  # novelty detection starts after this many windows
+    # Alerting floors: a statistically significant change smaller than these is jitter, not an incident.
+    min_abs_latency_ms: float = 100.0  # trace p95
+    min_abs_ms_per_token: float = 1.0  # LLM latency per output token
 
 
 def severity_for(score: float) -> str:
@@ -81,6 +84,7 @@ class DetectorSuite:
         metric: str,
         value: float | None,
         details: dict[str, Any] | None = None,
+        min_abs: float = 0.0,
     ) -> Anomaly | None:
         if value is None:
             return None
@@ -90,7 +94,7 @@ class DetectorSuite:
         if len(base) >= self.cfg.min_baseline:
             z, center = robust_z(value, base)
             rel = (value - center) / center if center else 0.0
-            if z >= self.cfg.z_threshold and rel >= self.cfg.min_rel_change:
+            if z >= self.cfg.z_threshold and rel >= self.cfg.min_rel_change and value - center >= min_abs:
                 anomaly = Anomaly(
                     project_id=self.project_id,
                     detector=detector,
@@ -156,7 +160,12 @@ class DetectorSuite:
                 continue
             out.append(
                 self._continuous(
-                    w, "latency", group, "trace_duration_p95_ms", quantile([t.duration_ms for t in ts], 0.95)
+                    w,
+                    "latency",
+                    group,
+                    "trace_duration_p95_ms",
+                    quantile([t.duration_ms for t in ts], 0.95),
+                    min_abs=cfg.min_abs_latency_ms,
                 )
             )
             out.append(self._continuous(w, "cost", group, "cost_per_trace_usd", sum(t.cost_usd for t in ts) / len(ts)))
@@ -247,6 +256,7 @@ class DetectorSuite:
                         "ms_per_output_token_p50",
                         quantile(per_token, 0.5),
                         {"calls": len(ss)},
+                        min_abs=self.cfg.min_abs_ms_per_token,
                     )
                 )
         for tool, ss in by_tool.items():
